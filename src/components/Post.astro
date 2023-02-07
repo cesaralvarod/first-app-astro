@@ -1,0 +1,17 @@
+---
+const { title, body } = Astro.props;
+---
+
+<li>
+  <h3>{title}</h3>
+  <p>{body}</p>
+</li>
+
+<style is:inline>
+  li {
+    background: #eee;
+    list-style: none;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+</style>

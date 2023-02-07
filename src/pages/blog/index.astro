@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const posts = await Astro.glob("./posts/*.md");
+---
+
+<Layout title="Blog de astro">
+  <h1>Blog</h1>
+
+  <img
+    src="https://www.pngkey.com/png/detail/407-4073061_computador-de-escritorio-intel-core-i3-computador-de.png"
+    alt="Imagen de computadora"
+  />
+
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={post.url} class="link">
+            {post.frontmatter.title}
+            <p>De: {post.frontmatter.author}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style>
+  .link {
+    background: wheat;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+</style>
